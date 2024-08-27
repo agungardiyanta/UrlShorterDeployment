@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: core
-          image: distucker/core:02522205cf1bb69b98a7578a90e8c84e11775e0b
+          image: distucker/core:c4d3e46e61ffddb8874a9a00f782c7b51eafd5a5
           envFrom:
           - secretRef:
               name: core-secret   
