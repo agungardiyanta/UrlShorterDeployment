@@ -16,7 +16,10 @@ spec:
     spec:
       containers:
         - name: analytic
-          image: distucker/analytic:image-tag  
+          image: distucker/analytic:image-tag
+          envFrom:
+          - secretRef:
+              name: analytic-secret          
           resources:
             requests:
               memory: "64Mi"
