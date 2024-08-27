@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: core
-          image: distucker/core:image-tag  
+          image: distucker/core:02522205cf1bb69b98a7578a90e8c84e11775e0b
           resources:
             requests:
               memory: "64Mi"
