@@ -17,9 +17,17 @@ spec:
       containers:
         - name: core
           image: distucker/core:c4d3e46e61ffddb8874a9a00f782c7b51eafd5a5
-          envFrom:
-          - secretRef:
-              name: core-secret   
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: core-secret
+                key: DATABASE_URL
+          - name: REDIS_ADDR
+            valueFrom:
+              secretKeyRef:
+                name: core-secret
+                key: REDIS_ADDR
           resources:
             requests:
               memory: "64Mi"
