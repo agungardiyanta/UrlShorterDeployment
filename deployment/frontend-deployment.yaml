@@ -19,11 +19,11 @@ spec:
           image: distucker/frontend:fb9415bdeb0d6a8444c4332ce67cf7e66b5a33ca
           resources:
             requests:
-              memory: "64Mi"
-              cpu: "64m"
-            limits:
               memory: "100Mi"
               cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
           ports:
             - containerPort: 3000
           readinessProbe:
