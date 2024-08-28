@@ -1,16 +1,16 @@
 import http from "k6/http";
 import { sleep } from 'k6';
 import { check } from 'k6';
-
 export const options = {
   // A number specifying the number of VUs to run concurrently.
   insecureSkipTLSVerify: true,
   stages: [
-    { duration: '30s', target: 500 },   // Ramp-up to 500 RPS
-    { duration: '1m', target: 500 },   // Stay at 500 RPS for 3 minutes
+    { duration: '1m', target: 500 },   // Ramp-up to 500 RPS
+    { duration: '2m', target: 1000 },   // Stay at 500 RPS for 2 minutes
     { duration: '10s', target: 10000 }, // Spike to 10,000 RPS
+    { duration: '5s', target: 10000 },  // Stay at 10,000 RPS for 5 second
     { duration: '30s', target: 500 },   // Ramp-down back to 500 RPS
-    { duration: '10s', target: 0 },
+    { duration: '2m', target: 0 },
   ],
 };
 
