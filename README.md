@@ -1,5 +1,5 @@
 # UrlShorterDeployment
-Repository ini bagian dari repositoy [UrlShorter](https://github.com/agungardiyanta/UrlShorter) yang menyimpan infrastructure code atau script yang digunakan.
+Repository ini bagian dari repositoy [UrlShorter](https://github.com/agungardiyanta/UrlShorter) yang menyimpan infrastructure code atau script yang digunakan project dapat diakses di [https://dsandbox.online](https://dsandbox.online).
 
 UrlShorter project merupakan aplikasi yang menyediakan layanan untuk mengubah atau memperpendek link menjadi `short_id` yang unik.\
 Project ini dibagi menjadi 3 service utama frontend, core dan analytic
@@ -10,7 +10,7 @@ Lalu ada dua backend service menggunakan bahasa Golang 1.22
 
 ## Infrastructure
 *  Cluster\
- Project ini di deploy dalam cluster Google Kubernetes Engine dengan konfigurasi 1 nodepool (2 x node tipe e2-highcpu-4 )
+ Project ini di deploy dalam cluster Google Kubernetes Engine dengan konfigurasi 1 nodepool dengan konfigurasi 2 x node tipe e2-highcpu-4 (2 x 2 Core CPU dan 4GB RAM) menggunakan terraform
 * Database\
 Menggunakan Postgresql version 16 dideploy melalui helm chart standart [bitnami](https://github.com/bitnami/charts/tree/main/bitnami/postgresql/#installing-the-chart) konfigurasi `1 instances`
 * Cache\
