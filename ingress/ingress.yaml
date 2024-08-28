@@ -10,7 +10,6 @@ spec:
   tls:
     - hosts:
         - 'dsandbox.online'
-        - 'argo.dsandbox.online'
       secretName: tls-secret
   ingressClassName: nginx
   rules:
@@ -43,15 +42,5 @@ spec:
             backend:
               service:
                 name: analytic-svc
-                port:
-                  number: 80
-    - host: argo.dsandbox.online
-      http: 
-        paths:
-          - path: /(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: argo-cd-argocd-server
                 port:
                   number: 80
