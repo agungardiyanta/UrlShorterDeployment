@@ -24,6 +24,13 @@ spec:
                 name: frontend-svc
                 port:
                   number: 80
+          - path: /s/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: core-svc
+                port:
+                  number: 80
           - path: /api/core/(.*)
             pathType: ImplementationSpecific
             backend:
