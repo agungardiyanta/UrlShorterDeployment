@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: analytic
-          image: distucker/analytic:2a0a78e31ef02132bedfc3900dec7a8573529117
+          image: distucker/analytic:b9df66e6068b1af8574863693243d4e740fabf1d
           envFrom:
           - secretRef:
               name: analytic-secret          
