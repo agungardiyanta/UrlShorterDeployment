@@ -1,13 +1,16 @@
 import http from "k6/http";
+import { sleep } from 'k6';
+import { check } from 'k6';
 
 export const options = {
   // A number specifying the number of VUs to run concurrently.
   insecureSkipTLSVerify: true,
   stages: [
-    { duration: "5s", target: 100 },
-    { duration: "10s", target: 500 },
-    { duration: "5s", target: 10000 },
-    { duration: "10s", target: 10 }
+    { duration: '30s', target: 500 },   // Ramp-up to 500 RPS
+    { duration: '1m', target: 500 },   // Stay at 500 RPS for 3 minutes
+    { duration: '10s', target: 10000 }, // Spike to 10,000 RPS
+    { duration: '30s', target: 500 },   // Ramp-down back to 500 RPS
+    { duration: '10s', target: 0 },
   ],
 };
 
@@ -20,5 +23,7 @@ export default function () {
   var randomShortId = getRandomElement(short_id_list);
 
   const url = `https://dsandbox.online/api/analytic/stats/${randomShortId}`;
-  http.get(url);
+  const res = http.get(url);
+  check(res, { 'status is 200': (r) => r.status === 200 });
+  sleep(1);
 }
