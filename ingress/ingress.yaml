@@ -5,12 +5,19 @@ metadata:
   name: my-ingress
   annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
+  tls:
+    - hosts:
+        - 'dsandbox.online'
+        - 'argo.dsandbox.online'
+      secretName: tls-secret
   ingressClassName: nginx
   rules:
-    -  http: 
+    - host: dsandbox.online 
+      http: 
         paths:
-          - path: /
+          - path: /(.*)
             pathType: ImplementationSpecific
             backend:
               service:
@@ -29,5 +36,15 @@ spec:
             backend:
               service:
                 name: analytic-svc
+                port:
+                  number: 80
+    - host: argo.dsandbox.online
+      http: 
+        paths:
+          - path: /(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: argo-cd-argocd-server
                 port:
                   number: 80
