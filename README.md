@@ -38,8 +38,8 @@ Skema pengujian dapat dilihat pada script berikut [k6s script](https://github.co
 
 ## Monitoring Plan (TODO)
 
-Untuk monitoring service dapat menggunakan prometheus untuk metrics untuk mengetahui resources usage dan Loki sebagai Logs scraper. Hasil dari metrics dan Logs dapat di tampilkan di dashboard grafana
-Untuk melakukan tracing sebaiknya juga menggunakan Jaeger yang dikombinasikan dengan OpenTelemetry
+Untuk monitoring service dapat menggunakan prometheus untuk metrics seperti resources usage dan Loki sebagai Logs scraper. Hasil dari metrics dan Logs dapat di tampilkan di dashboard grafana.
+Untuk melakukan tracing sebaiknya juga menggunakan Jaeger yang dikombinasikan dengan OpenTelemetry, nantinya dapat diketahui lamanya process tiap API berjalan.
 
 
 
