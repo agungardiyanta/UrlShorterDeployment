@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: distucker/frontend:1da9d1be3885155c9ecf81e054a93ea314d5bc77
+          image: distucker/frontend:2d209952c3bc99e9525a67a29b469f13fdf25444
           resources:
             requests:
               memory: "64Mi"
